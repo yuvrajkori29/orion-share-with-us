@@ -10,10 +10,17 @@ export const login = async (req, res) => {
             const user = await UserModel.findOne({
                 email: req.body?.email,
                 password: req.body?.password,
+<<<<<<< HEAD
             }).populate('files');
             if (!user){
                 res.status(404).json({
                     error: 'Please Sign Up first'
+=======
+            })
+            if (!user){
+                res.status(404).json({
+                    error: 'Please enter the correct details'
+>>>>>>> origin/master
                 })   
             } else {
                 res.status(200).json({
@@ -55,6 +62,7 @@ export const signup = async (req, res) => {
         console.error(error.message);
         response.status(500).json({ error: error.message });
     }
+<<<<<<< HEAD
 }
 
 export const fetchUser = async (request, response) => {
@@ -70,4 +78,6 @@ export const fetchUser = async (request, response) => {
         console.error(error.message);
         response.status(500).json({ error: error.message });
     } 
+=======
+>>>>>>> origin/master
 }
