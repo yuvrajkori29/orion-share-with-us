@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-<<<<<<< HEAD
 import { Button,ButtonGroup,Form,Input,FormGroup,Label, ListGroup, ListGroupItem} from "reactstrap";
 import { useCookies } from "react-cookie";
 import "./App.css";
@@ -10,12 +9,6 @@ import 'tippy.js/dist/tippy.css';
 
 
 
-=======
-import { Button, ButtonGroup, Form, Input, FormGroup, Label } from "reactstrap";
-import { useCookies } from 'react-cookie';
-import "./App.css";
-import { uploadFile, login, signup } from "./service/api";
->>>>>>> origin/master
 const initialUser = {
   email: "",
   password: "",
@@ -28,25 +21,16 @@ const initialForm = {
 };
 
 function App() {
-<<<<<<< HEAD
   const [cookies, setCookie, removeCookie] = useCookies(["orion-user"]);
   const [collection, setCollection] = useState(false);
   const [user, setUser] = useState(initialUser);
   const [msg, setMsg] = useState("");
-=======
-  const [cookies, setCookie, removeCookie] = useCookies(['orion-user']);
-  const [user, setUser] = useState(initialUser);
-  const [msg, setMsg] = useState('');
->>>>>>> origin/master
   const [formData, setFormData] = useState(initialForm);
   const [isLogin, setIsLogin] = useState(true);
   const [file, setFile] = useState("");
   const [result, setResult] = useState("");
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
   const fileInputRef = useRef();
 
   const url =
@@ -57,7 +41,6 @@ function App() {
       const data = new FormData();
       data.append("name", file.name);
       data.append("file", file);
-<<<<<<< HEAD
       const response = await uploadFile(data, user._id);
       setResult(response.path);
       setUser(response.user);
@@ -93,29 +76,6 @@ function App() {
         path: "/",
         expires: expiryDate,
       });
-=======
-
-      const response = await uploadFile(data);
-      setResult(response.path);
-    }
-  };
-
-  async function handleLoginSubmit(e) {
-    e.preventDefault();
-    const res = await login(formData);
-    if (res.success){
-      const expiryDate = new Date();
-      expiryDate.setDate(expiryDate.getDate() + 30);
-      setMsg('');
-      setUser(res.response);
-      setCookie('orion-user',
-        res.response,
-        {
-          path: '/',
-          expires: expiryDate 
-        }
-      )
->>>>>>> origin/master
       setFormData(initialForm);
     } else {
       setMsg(res.error);
@@ -124,7 +84,6 @@ function App() {
   async function handleSignUpSubmit(e) {
     e.preventDefault();
     const res = await signup(formData);
-<<<<<<< HEAD
     if (res.success) {
       setMsg("Account created succesfully, please Login");
       setFormData(initialForm);
@@ -151,29 +110,6 @@ function App() {
   }, []);
   useEffect(() => {
     if (cookies["orion-user"]) {
-=======
-    if (res.success){
-      setMsg('Account created succesfully, please Login');
-      setFormData(initialForm);
-    } else {
-      setMsg(res.error);
-    }  
-  }
-
-  function logout(){
-    removeCookie('orion-user',{
-      path: '/'
-    });
-    setUser(initialUser);
-  }
-  useEffect(() => {
-    if (cookies["orion-user"]){
-      setUser(cookies["orion-user"]);
-    }
-  }, []);
-  useEffect(() => {
-    if (cookies["orion-user"]){
->>>>>>> origin/master
       getImage();
     }
   }, [file]);
@@ -182,7 +118,6 @@ function App() {
     fileInputRef.current.click();
   };
 
-<<<<<<< HEAD
   
   if (user.email && user.password) {
     return (
@@ -319,45 +254,14 @@ function App() {
                
 
               {/* <button
-=======
-  if (user.email && user.password) {
-    return (
-      <>
-        <div className="heading">
-          <img src="./logo.png" alt="" height={"200px"} width={"200px"} />
-        </div>
-
-        <div className="container">
-          <div className="fborder">
-            <div className="wrapper">
-             
-              <h3>Drop Your Files Here</h3>
-          
-              <img src="./file.png" alt="" className="icon" />
-
-              <button
->>>>>>> origin/master
                 onClick={() => onUploadClick()}
                 style={{
                   cursor: "pointer",
                 }}
               >
                 Upload
-<<<<<<< HEAD
               </button> */}
 
-=======
-              </button>
-              <button
-                onClick={logout}
-                style={{
-                  backgroundColor: 'gray',
-                  cursor: "pointer",
-                }}
-              >
-                Logout
-              </button>
->>>>>>> origin/master
               <input
                 type="file"
                 ref={fileInputRef}
@@ -365,18 +269,13 @@ function App() {
                 onChange={(e) => setFile(e.target.files[0])}
               />
 
-<<<<<<< HEAD
               <a style={{
                 color:"green"
               }}href={result} target="_blank" rel="noreferrer">
-=======
-              <a href={result} target="_blank" rel="noreferrer">
->>>>>>> origin/master
                 {result}
               </a>
             </div>
           </div>
-<<<<<<< HEAD
           {collection ? (
             <div className="animation"
               style={{
@@ -478,17 +377,12 @@ function App() {
               }}
             />
          </Tippy> </div>)}
-=======
-
-          <img src={url} alt=" " className="img" />
->>>>>>> origin/master
         </div>
       </>
     );
   }
 
   return (
-<<<<<<< HEAD
     <div style={{ backgroundColor: "#eff5fe" }}>
       <div
         style={{
@@ -542,44 +436,6 @@ function App() {
       <div
         style={{
           height: user.email === "admin@mail.com" ? "58vh" : "60vh",
-=======
-    <div>
-      <div
-          style={{
-            height: "15vh",
-            width: "100vw",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <ButtonGroup>
-            <Button
-              color="primary"
-              outline
-              onClick={() => {
-                setIsLogin(true);
-              }}
-              active={isLogin}
-            >
-              Login
-            </Button>
-            <Button
-              color="primary"
-              outline
-              onClick={() => {
-                setIsLogin(false);
-              }}
-              active={!isLogin}
-            >
-              Sign Up
-            </Button>
-          </ButtonGroup>
-        </div>
-      <div
-        style={{
-          height: user.email === "admin@mail.com" ? "85vh" : "100vh",
->>>>>>> origin/master
           width: "100vw",
           display: "flex",
           flexDirection: "column",
@@ -587,7 +443,6 @@ function App() {
           justifyContent: "center",
         }}
       >
-<<<<<<< HEAD
         <Form className     
            style={{
             width: "50%",
@@ -597,15 +452,6 @@ function App() {
           onSubmit={isLogin ? handleLoginSubmit : handleSignUpSubmit}
         >
           <FormGroup  >
-=======
-        <Form
-          style={{
-            width: "50%",
-          }}
-          onSubmit={isLogin ? handleLoginSubmit : handleSignUpSubmit}
-        >
-          <FormGroup>
->>>>>>> origin/master
             <p>{msg}</p>
             <Label for="email-input">Email</Label>
             <Input
