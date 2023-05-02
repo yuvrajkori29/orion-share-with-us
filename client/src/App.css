@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background:  #eff5fe;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px 0 black, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img {
+  
+  width: 30%;
+  height: 60%;
+ 
+}
+.icon
+{
+  width: 20%;
+  height: 15%;
+
+}
+.fborder{
+
+
+
+ 
+  display: flex;
+  align-items: center;
+  width: 580px;
+  height: 500px;
+  background-color: #ffff;
+  border-radius: 2%;
+  justify-content: space-around;
+  
+
+}
+.wrapper {
+  
+  width: 550px;
+  height: 470px;
+ 
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2%;
+  border: #0288d147;
+  justify-content: center;
+  border-style: dashed;
+
+  
+  
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #445A6F;
+ 
+}
+
+input {
+  margin: 20px 0;
+  width: 300px;
+  padding: 8px;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+button {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #0a5faf;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 20px;
+  margin: 30px 0;
+}
+.animation{
+  box-shadow: 0 4px 8px 0 black, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.animation img {
+  transition: transform .5s;
+}
+
+/* .animation:hover .logout {
+  transform: scale(1.3);
+  overflow: hidden;
+}
+.animation:hover .open-folder {
+  transform: scale(1.3);
+  overflow: hidden;
+} */
+.animation:hover .box {
+  transform: scale(1.03);
+  overflow: hidden;
+}
+.animation:hover .button {
+  transform: scale(1.1);
+  overflow: hidden;
+}
+.animation:hover .user {
+  transform: scale(1.1);
+  overflow: hidden;
+}
+
+.animation:hover .icon {
+  transform: scale(1.1);
+  overflow: hidden;
+}
+
+.rotate {
+  transition: transform 0.5s ease;
+}
+
+.rotate:hover {
+  transform: rotate(360deg);
+}
+
+
+
